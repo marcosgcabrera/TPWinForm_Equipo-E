@@ -11,7 +11,8 @@ namespace Negocio
 {
     public class AccesoDatos
     {
-        private SqlConnection conexion;//se encarga de obtener la direccion y conectar a la bdd
+
+        private SqlConnection conexion;//se encarga de obtener la direccion y conectar a la base de datos
         private SqlCommand comando;
         private SqlDataReader lector;
 
