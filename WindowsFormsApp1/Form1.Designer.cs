@@ -33,13 +33,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.pbArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).BeginInit();
-=======
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -47,18 +43,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(12, 110);
-<<<<<<< HEAD
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(744, 190);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-=======
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(730, 190);
-            this.dataGridView1.TabIndex = 0;
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
             // 
             // button1
             // 
@@ -96,7 +87,6 @@
             this.button4.Text = "Ocultar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
             // pbArticulo
             // 
             this.pbArticulo.Location = new System.Drawing.Point(762, 110);
@@ -106,17 +96,12 @@
             this.pbArticulo.TabIndex = 5;
             this.pbArticulo.TabStop = false;
             // 
-=======
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 450);
-<<<<<<< HEAD
             this.Controls.Add(this.pbArticulo);
-=======
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -127,10 +112,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).EndInit();
-=======
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
             this.ResumeLayout(false);
 
         }
@@ -142,10 +124,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-<<<<<<< HEAD
+
         private System.Windows.Forms.PictureBox pbArticulo;
-=======
->>>>>>> 6fe681de58c22850f3b81e59fff08edf446af0c0
+
     }
 }
 
