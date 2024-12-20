@@ -30,13 +30,13 @@ namespace WindowsFormsApp1
 
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)//muestra la imagen del articulo seleccionado
         {
            Articulo Seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
             cargarImagen(Seleccionado.Imagenes[0].Url);
         }
 
-        private void cargarImagen(string imagen) 
+        private void cargarImagen(string imagen) //
         {
             try
             {
