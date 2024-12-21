@@ -88,5 +88,29 @@ namespace WindowsFormsApp1
 
 
         }
+
+        private void precioTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar)&& e.KeyChar != (char)8) //esto hace que rechace characteres que no sean numeros
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void urlImagenTxt_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(urlImagenTxt.Text);
+        }
+        private void cargarImagen(string imagen) //
+        {
+            try
+            {
+                pbArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbArticulo.Load("https://doc24.com.ar/wp-content/uploads/2023/10/placeholder-2-1.png");
+            }
+        }
     }
 }
