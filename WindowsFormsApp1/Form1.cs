@@ -53,5 +53,14 @@ namespace WindowsFormsApp1
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
         }
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+            FormAgregar modificar = new FormAgregar(seleccionado);
+            modificar.ShowDialog();
+        }
     }
 }
