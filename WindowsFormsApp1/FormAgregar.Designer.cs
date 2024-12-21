@@ -41,12 +41,16 @@
             this.botonAceptar = new System.Windows.Forms.Button();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.urlImagenTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pbArticulo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(12, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -55,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 81);
+            this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +68,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 119);
+            this.label3.Location = new System.Drawing.Point(12, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 2;
@@ -72,29 +76,29 @@
             // 
             // codigoTxt
             // 
-            this.codigoTxt.Location = new System.Drawing.Point(58, 48);
+            this.codigoTxt.Location = new System.Drawing.Point(58, 44);
             this.codigoTxt.Name = "codigoTxt";
-            this.codigoTxt.Size = new System.Drawing.Size(257, 20);
-            this.codigoTxt.TabIndex = 3;
+            this.codigoTxt.Size = new System.Drawing.Size(191, 20);
+            this.codigoTxt.TabIndex = 0;
             // 
             // nombreTxt
             // 
-            this.nombreTxt.Location = new System.Drawing.Point(58, 78);
+            this.nombreTxt.Location = new System.Drawing.Point(58, 74);
             this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(257, 20);
-            this.nombreTxt.TabIndex = 4;
+            this.nombreTxt.Size = new System.Drawing.Size(191, 20);
+            this.nombreTxt.TabIndex = 1;
             // 
             // descripcionTxt
             // 
-            this.descripcionTxt.Location = new System.Drawing.Point(81, 116);
+            this.descripcionTxt.Location = new System.Drawing.Point(81, 112);
             this.descripcionTxt.Name = "descripcionTxt";
-            this.descripcionTxt.Size = new System.Drawing.Size(234, 20);
-            this.descripcionTxt.TabIndex = 5;
+            this.descripcionTxt.Size = new System.Drawing.Size(168, 20);
+            this.descripcionTxt.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 239);
+            this.label4.Location = new System.Drawing.Point(16, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 6;
@@ -103,7 +107,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 202);
+            this.label5.Location = new System.Drawing.Point(12, 223);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 8;
@@ -112,7 +116,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 158);
+            this.label6.Location = new System.Drawing.Point(15, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 9;
@@ -120,17 +124,18 @@
             // 
             // precioTxt
             // 
-            this.precioTxt.Location = new System.Drawing.Point(58, 155);
+            this.precioTxt.Location = new System.Drawing.Point(58, 151);
             this.precioTxt.Name = "precioTxt";
-            this.precioTxt.Size = new System.Drawing.Size(260, 20);
-            this.precioTxt.TabIndex = 11;
+            this.precioTxt.Size = new System.Drawing.Size(191, 20);
+            this.precioTxt.TabIndex = 3;
+            this.precioTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.precioTxt_KeyPress);
             // 
             // botonAceptar
             // 
-            this.botonAceptar.Location = new System.Drawing.Point(120, 300);
+            this.botonAceptar.Location = new System.Drawing.Point(334, 229);
             this.botonAceptar.Name = "botonAceptar";
-            this.botonAceptar.Size = new System.Drawing.Size(104, 37);
-            this.botonAceptar.TabIndex = 12;
+            this.botonAceptar.Size = new System.Drawing.Size(246, 74);
+            this.botonAceptar.TabIndex = 7;
             this.botonAceptar.Text = "Aceptar";
             this.botonAceptar.UseVisualStyleBackColor = true;
             this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
@@ -139,25 +144,54 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(73, 199);
+            this.cboCategoria.Location = new System.Drawing.Point(70, 220);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cboCategoria.TabIndex = 13;
+            this.cboCategoria.TabIndex = 5;
             // 
             // cboMarca
             // 
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(73, 236);
+            this.cboMarca.Location = new System.Drawing.Point(70, 257);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 14;
+            this.cboMarca.TabIndex = 6;
+            // 
+            // urlImagenTxt
+            // 
+            this.urlImagenTxt.Location = new System.Drawing.Point(79, 186);
+            this.urlImagenTxt.Name = "urlImagenTxt";
+            this.urlImagenTxt.Size = new System.Drawing.Size(170, 20);
+            this.urlImagenTxt.TabIndex = 4;
+            this.urlImagenTxt.Leave += new System.EventHandler(this.urlImagenTxt_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Url Imagen";
+            // 
+            // pbArticulo
+            // 
+            this.pbArticulo.Location = new System.Drawing.Point(334, 44);
+            this.pbArticulo.Name = "pbArticulo";
+            this.pbArticulo.Size = new System.Drawing.Size(246, 179);
+            this.pbArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbArticulo.TabIndex = 17;
+            this.pbArticulo.TabStop = false;
             // 
             // FormAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 364);
+            this.ClientSize = new System.Drawing.Size(663, 332);
+            this.Controls.Add(this.pbArticulo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.urlImagenTxt);
             this.Controls.Add(this.cboMarca);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.botonAceptar);
@@ -175,6 +209,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Articulo";
             this.Load += new System.EventHandler(this.FormAgregar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +230,8 @@
         private System.Windows.Forms.Button botonAceptar;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.ComboBox cboMarca;
+        private System.Windows.Forms.TextBox urlImagenTxt;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pbArticulo;
     }
 }
