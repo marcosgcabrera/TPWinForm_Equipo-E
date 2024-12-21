@@ -8,6 +8,8 @@ using System.Globalization;
 using Modelo;
 using System.Net;
 using System.Security.Policy;
+using System.Data.SqlTypes;
+
 
 
 namespace Negocio
@@ -41,6 +43,7 @@ namespace Negocio
 
                     aux.Imagenes = new List<Imagen>();
                     Imagen imagen = new Imagen();
+                    if (!(datos.Lector["Imagen"] is DBNull))
                     imagen.Url = (string)datos.Lector["Imagen"];
                     aux.Imagenes.Add(imagen);
 
@@ -49,6 +52,23 @@ namespace Negocio
                 return lista;
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) VALUES ('" + nuevo.Codigo +  "','"+ nuevo.Nombre + "','"+ nuevo.Descripcion +"'," + nuevo.Precio + ")");// sql "insert"
+                datos.ejecutarAccion();
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }
