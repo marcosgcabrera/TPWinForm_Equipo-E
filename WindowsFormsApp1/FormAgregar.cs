@@ -21,17 +21,19 @@ namespace WindowsFormsApp1
 
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            Articulo nuevoArticulo = new Articulo();
-            ArticuloNegocio Negocio = new ArticuloNegocio();
+            Articulo art = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                nuevoArticulo.Codigo = codigoTxt.Text;
-                nuevoArticulo.Nombre = nombreTxt.Text;
-                nuevoArticulo.Descripcion = descripcionTxt.Text;
-                nuevoArticulo.Precio = decimal.Parse(precioTxt.Text);
-           
+                art.Codigo = codigoTxt.Text;
+                art.Nombre = nombreTxt.Text;
+                art.Descripcion = descripcionTxt.Text;
+                art.Precio = decimal.Parse(precioTxt.Text);
+                art.Marca = (Marca)cboMarca.SelectedItem;
+                art.Categoria = (Categoria)cboCategoria.SelectedItem;
 
-                Negocio.agregar(nuevoArticulo);
+
+                negocio.agregar(art);
                 MessageBox.Show("Articulo Agregado!");
                 Close();
 
@@ -46,9 +48,16 @@ namespace WindowsFormsApp1
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            cboMarca.DataSource = marcaNegocio.listar();
-            cboCategoria.DataSource = categoriaNegocio.listar();
-
+            try
+            {
+                cboMarca.DataSource = marcaNegocio.listar();
+                cboCategoria.DataSource = categoriaNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void precioTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -74,5 +83,6 @@ namespace WindowsFormsApp1
                 pbArticulo.Load("https://doc24.com.ar/wp-content/uploads/2023/10/placeholder-2-1.png");
             }
         }
+
     }
 }

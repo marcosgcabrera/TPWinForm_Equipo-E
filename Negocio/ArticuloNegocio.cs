@@ -65,7 +65,9 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) VALUES ('" + nuevo.Codigo +  "','"+ nuevo.Nombre + "','"+ nuevo.Descripcion +"'," + nuevo.Precio + ")");// sql "insert"
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo +  "','"+ nuevo.Nombre + "','"+ nuevo.Descripcion +"'," + nuevo.Precio + ", @idMarca, @idCategoria)");// sql "insert"
+                datos.setearParametroDesp("@idMarca", nuevo.Marca.Id);
+                datos.setearParametroDesp("@idCategoria", nuevo.Categoria.Id);
                 datos.ejecutarAccion();
             }
             catch(Exception ex)

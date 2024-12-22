@@ -23,12 +23,24 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulos = negocio.listar();
-            dataGridView1.DataSource = ListaArticulos;//guardamos los datos en el atrributo lista privada
-            cargarImagen(ListaArticulos[0].Imagenes[0].Url);
-
+            cargar();
         }
+
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                ListaArticulos = negocio.listar();
+                dataGridView1.DataSource = ListaArticulos;//guardamos los datos en el atrributo lista privada
+                cargarImagen(ListaArticulos[0].Imagenes[0].Url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+ 
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)//muestra la imagen del articulo seleccionado
         {
@@ -52,6 +64,7 @@ namespace WindowsFormsApp1
         {
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
+
         }
     }
 }
