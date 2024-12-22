@@ -36,15 +36,15 @@ namespace Negocio
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     aux.Imagenes = new List<Imagen>();
                     Imagen imagen = new Imagen();
                     if (!(datos.Lector["Imagen"] is DBNull))
-                    imagen.Url = (string)datos.Lector["Imagen"];
+                        imagen.Url = (string)datos.Lector["Imagen"];
                     aux.Imagenes.Add(imagen);
 
                     lista.Add(aux);
@@ -65,12 +65,15 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
+
                 datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo +  "','"+ nuevo.Nombre + "','"+ nuevo.Descripcion +"'," + nuevo.Precio + ", @idMarca, @idCategoria)");// sql "insert"
                 datos.setearParametroDesp("@idMarca", nuevo.Marca.Id);
                 datos.setearParametroDesp("@idCategoria", nuevo.Categoria.Id);
+
+                
                 datos.ejecutarAccion();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -78,6 +81,36 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public void modificar(Articulo arti)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update ARTICULOS set  Codigo = '@codigo', Nombre = '@nombre', Descripcion = '@descripcion', IdMarca = @idmarca, IdCategoria =@idcategoria, Precio = @precio Where Id = @id");
+                datos.setearParametro("@codigo", arti.Codigo);
+                datos.setearParametro("@nombre", arti.Nombre);
+                datos.setearParametro("@descripcion", arti.Descripcion);
+                datos.setearParametro("@idmarca", arti.Marca.Id.ToString());
+                datos.setearParametro("@idcategoria", arti.Categoria.Id.ToString());
+                datos.setearParametro("@precio", arti.Precio.ToString());//arreglar xq me da error el decimal
+                datos.setearParametro("@id", arti.Id.ToString());
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                datos.cerrarConexion();
+            }
+
+
         }
     }
 }

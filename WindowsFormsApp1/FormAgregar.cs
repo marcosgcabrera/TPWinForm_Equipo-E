@@ -14,27 +14,47 @@ namespace WindowsFormsApp1
 {
     public partial class FormAgregar : Form
     {
+        private Articulo articulo = null;
         public FormAgregar()
         {
             InitializeComponent();
         }
-
+        public FormAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+        }
         private void botonAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
-            ArticuloNegocio negocio = new ArticuloNegocio();
+            ArticuloNegocio Negocio = new ArticuloNegocio();
             try
             {
-                art.Codigo = codigoTxt.Text;
-                art.Nombre = nombreTxt.Text;
-                art.Descripcion = descripcionTxt.Text;
-                art.Precio = decimal.Parse(precioTxt.Text);
-                art.Marca = (Marca)cboMarca.SelectedItem;
-                art.Categoria = (Categoria)cboCategoria.SelectedItem;
+                if (articulo == null) 
+                    articulo = new Articulo();
+
+                articulo.Codigo = codigoTxt.Text;
+                articulo.Nombre = nombreTxt.Text;
+                articulo.Descripcion = descripcionTxt.Text;
+                articulo.Precio = decimal.Parse(precioTxt.Text);
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
 
 
-                negocio.agregar(art);
-                MessageBox.Show("Articulo Agregado!");
+                if (articulo.Id == 0)
+
+                {
+
+                    Negocio.agregar(articulo);//agrego
+                    MessageBox.Show("Articulo Agregado!");
+                    
+                }
+                else
+                {
+                    Negocio.modificar(articulo);//modifico
+                    MessageBox.Show(" Articulo Modificado!");
+                    
+                }
+
                 Close();
 
             }
@@ -48,16 +68,28 @@ namespace WindowsFormsApp1
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            try
+
+            cboMarca.DataSource = marcaNegocio.listar();
+            cboMarca.ValueMember = "Id";
+            cboMarca.DisplayMember = "Descripcion";
+            cboCategoria.DataSource = categoriaNegocio.listar();
+            cboCategoria.ValueMember = "Id";
+            cboCategoria.DisplayMember = "Descripcion";
+
+            if (articulo != null)
             {
-                cboMarca.DataSource = marcaNegocio.listar();
-                cboCategoria.DataSource = categoriaNegocio.listar();
+                codigoTxt.Text = articulo.Codigo;
+                nombreTxt.Text = articulo.Nombre;
+                descripcionTxt.Text = articulo.Descripcion;
+                precioTxt.Text = articulo.Precio.ToString();
+                cboMarca.SelectedValue = articulo.Marca.Descripcion;
+                cboCategoria.SelectedValue = articulo.Categoria.Descripcion;
+                //imagentxt.Text = articulo.UrlImagen;
+                //cargarImagen(articulo.Nombre);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            
+
+
+
         }
 
         private void precioTxt_KeyPress(object sender, KeyPressEventArgs e)

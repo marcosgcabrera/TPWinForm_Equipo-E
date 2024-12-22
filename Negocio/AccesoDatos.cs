@@ -34,6 +34,10 @@ namespace Negocio
             comando.CommandText = consulta;//asignamos la consulta que se va a ejecutar
 
         }
+        public void setearParametro(string parametro, string valor)
+        {
+            comando.CommandText = comando.CommandText.Replace(parametro, valor);
+        }
 
         public void getearConsulta()//realizar lectura y guarda en lector
         {
