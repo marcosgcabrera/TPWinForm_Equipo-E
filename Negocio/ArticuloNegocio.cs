@@ -66,11 +66,11 @@ namespace Negocio
             try
             {
 
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo +  "','"+ nuevo.Nombre + "','"+ nuevo.Descripcion +"'," + nuevo.Precio + ", @idMarca, @idCategoria)");// sql "insert"
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ", @idMarca, @idCategoria)");// sql "insert"
                 datos.setearParametroDesp("@idMarca", nuevo.Marca.Id);
                 datos.setearParametroDesp("@idCategoria", nuevo.Categoria.Id);
 
-                
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -105,12 +105,29 @@ namespace Negocio
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 datos.cerrarConexion();
             }
 
 
+        }
+
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("delete from ARTICULOS where id = @id");
+                datos.setearParametro("@id",id.ToString());
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public void eliminar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

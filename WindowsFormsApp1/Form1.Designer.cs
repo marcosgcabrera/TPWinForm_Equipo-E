@@ -31,7 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pbArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,14 +70,15 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // button3
+            // btnEliminar
             // 
-            this.button3.Location = new System.Drawing.Point(395, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(395, 361);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // button4
             // 
@@ -105,7 +106,7 @@
             this.ClientSize = new System.Drawing.Size(1052, 450);
             this.Controls.Add(this.pbArticulo);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.dataGridView1);
@@ -124,7 +125,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button button4;
 
         private System.Windows.Forms.PictureBox pbArticulo;

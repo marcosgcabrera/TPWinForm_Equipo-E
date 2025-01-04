@@ -75,5 +75,29 @@ namespace WindowsFormsApp1
             FormAgregar modificar = new FormAgregar(seleccionado);
             modificar.ShowDialog();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Queres eliminarlo?", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+
+                    seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                    articulo.eliminar(seleccionado.Id);
+                    cargar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+               MessageBox.Show(ex.ToString());
+            }
+
+        }
     }
 }
