@@ -40,12 +40,24 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void ocultarColumnas()
+        {
+            if(dataGridView1.Columns.Contains("Imagen")) //Se agrega este if para asegurarnos de que la columna exista andes de querer ocultar
+            dataGridView1.Columns["Imagen"].Visible = false;
+
+            dataGridView1.Columns["Id"].Visible =false;
+        }
  
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)//muestra la imagen del articulo seleccionado
         {
-            Articulo Seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
-            cargarImagen(Seleccionado.Imagenes[0].Url);
+            if (dataGridView1.CurrentRow != null) //agregamos esta verificación para asegurarnos de haya un elemento disponible para seleccionar en dicha posicion
+            {
+                Articulo Seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                cargarImagen(Seleccionado.Imagenes[0].Url);
+            }
+          
         }
 
         private void cargarImagen(string imagen) //
@@ -74,6 +86,29 @@ namespace WindowsFormsApp1
             seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
             FormAgregar modificar = new FormAgregar(seleccionado);
             modificar.ShowDialog();
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada; //creo variable vacia
+
+            string filtro = filtroTbo.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = ListaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));  //devuelve lista y filtra por nombre o categoria, Contains verifica si lo que viene en filtro esta contenido en el nombre que esta analizando.
+                
+            }
+            else
+            {
+                listaFiltrada = ListaArticulos;
+            }
+
+
+            dataGridView1.DataSource = null;//limpio/datagridview es la lista que permite mostrar la informacion de la base de datos
+            dataGridView1.DataSource = listaFiltrada;
+            ocultarColumnas();
+
         }
     }
 }

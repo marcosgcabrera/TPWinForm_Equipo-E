@@ -34,6 +34,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.pbArticulo = new System.Windows.Forms.PictureBox();
+            this.filtro = new System.Windows.Forms.Label();
+            this.filtroTbo = new System.Windows.Forms.TextBox();
+            this.btnFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).BeginInit();
             this.SuspendLayout();
@@ -98,11 +101,40 @@
             this.pbArticulo.TabIndex = 5;
             this.pbArticulo.TabStop = false;
             // 
+            // filtro
+            // 
+            this.filtro.AutoSize = true;
+            this.filtro.Location = new System.Drawing.Point(23, 56);
+            this.filtro.Name = "filtro";
+            this.filtro.Size = new System.Drawing.Size(29, 13);
+            this.filtro.TabIndex = 6;
+            this.filtro.Text = "Filtro";
+            // 
+            // filtroTbo
+            // 
+            this.filtroTbo.Location = new System.Drawing.Point(58, 53);
+            this.filtroTbo.Name = "filtroTbo";
+            this.filtroTbo.Size = new System.Drawing.Size(194, 20);
+            this.filtroTbo.TabIndex = 7;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Location = new System.Drawing.Point(272, 51);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltro.TabIndex = 8;
+            this.btnFiltro.Text = "Filtrar";
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 450);
+            this.Controls.Add(this.btnFiltro);
+            this.Controls.Add(this.filtroTbo);
+            this.Controls.Add(this.filtro);
             this.Controls.Add(this.pbArticulo);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -116,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArticulo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -128,7 +161,9 @@
         private System.Windows.Forms.Button button4;
 
         private System.Windows.Forms.PictureBox pbArticulo;
-
+        private System.Windows.Forms.Label filtro;
+        private System.Windows.Forms.TextBox filtroTbo;
+        private System.Windows.Forms.Button btnFiltro;
     }
 }
 
