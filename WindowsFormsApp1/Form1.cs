@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
             if (filtro != "")
             {
                 listaFiltrada = ListaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()));  //devuelve lista y filtra por nombre o categoria, Contains verifica si lo que viene en filtro esta contenido en el nombre que esta analizando.
-                
+
             }
             else
             {
@@ -108,6 +108,31 @@ namespace WindowsFormsApp1
             dataGridView1.DataSource = null;//limpio/datagridview es la lista que permite mostrar la informacion de la base de datos
             dataGridView1.DataSource = listaFiltrada;
             ocultarColumnas();
+        }
+
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Queres eliminarlo?", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+
+                    seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                    articulo.eliminar(seleccionado.Id);
+                    cargar();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+               MessageBox.Show(ex.ToString());
+            }
+
 
         }
     }
