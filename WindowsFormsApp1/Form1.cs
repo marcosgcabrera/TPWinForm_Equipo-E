@@ -26,20 +26,7 @@ namespace WindowsFormsApp1
             cargar();
         }
 
-        private void cargar()
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try
-            {
-                ListaArticulos = negocio.listar();
-                dataGridView1.DataSource = ListaArticulos;//guardamos los datos en el atrributo lista privada
-                cargarImagen(ListaArticulos[0].Imagenes[0].Url);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+       
 
         private void ocultarColumnas()
         {
@@ -60,6 +47,21 @@ namespace WindowsFormsApp1
           
         }
 
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                ListaArticulos = negocio.listar();
+                dataGridView1.DataSource = ListaArticulos;//guardamos los datos en el atrributo lista privada
+                cargarImagen(ListaArticulos[0].Imagenes[0].Url);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void cargarImagen(string imagen) //
         {
             try
@@ -76,6 +78,7 @@ namespace WindowsFormsApp1
         {
             FormAgregar alta = new FormAgregar();
             alta.ShowDialog();
+            cargar();
 
         }
 
@@ -86,6 +89,7 @@ namespace WindowsFormsApp1
             seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
             FormAgregar modificar = new FormAgregar(seleccionado);
             modificar.ShowDialog();
+            cargar();
         }
 
         private void btnFiltro_Click(object sender, EventArgs e)
