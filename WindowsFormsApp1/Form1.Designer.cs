@@ -32,7 +32,6 @@
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.pbArticulo = new System.Windows.Forms.PictureBox();
             this.filtro = new System.Windows.Forms.Label();
             this.filtroTbo = new System.Windows.Forms.TextBox();
@@ -75,22 +74,13 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(395, 361);
+            this.btnEliminar.Location = new System.Drawing.Point(287, 361);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(272, 361);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Ocultar";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // pbArticulo
             // 
@@ -137,7 +127,6 @@
             this.Controls.Add(this.filtroTbo);
             this.Controls.Add(this.filtro);
             this.Controls.Add(this.pbArticulo);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.buttonAgregar);
@@ -159,7 +148,6 @@
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button button4;
 
         private System.Windows.Forms.PictureBox pbArticulo;
         private System.Windows.Forms.Label filtro;
