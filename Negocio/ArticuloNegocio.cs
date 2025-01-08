@@ -23,7 +23,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion AS Marca, C.Descripcion AS Categoria, \r\nMIN(I.ImagenUrl) AS Imagen\r\nFROM ARTICULOS A \r\nLEFT JOIN MARCAS M ON A.IdMarca = M.Id\r\nLEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id\r\nLEFT JOIN IMAGENES I ON A.Id = I.IdArticulo\r\nGROUP BY A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion, C.Descripcion;");
+                datos.setearConsulta("SELECT \r\nA.Id,\r\nA.Codigo, \r\nA.Nombre, \r\nA.Descripcion, \r\nA.Precio, \r\nM.Descripcion AS Marca, \r\nC.Descripcion AS Categoria,\r\nA.IdMarca,\r\nA.IdCategoria,\r\nMIN(I.ImagenUrl) AS Imagen \r\nFROM ARTICULOS A \r\nLEFT JOIN MARCAS M ON A.IdMarca = M.Id \r\nLEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id \r\nLEFT JOIN IMAGENES I ON A.Id = I.IdArticulo \r\nGROUP BY A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion, C.Descripcion, A.IdMarca, A.IdCategoria");
                 datos.getearConsulta();
 
                 while (datos.Lector.Read())
@@ -36,9 +36,11 @@ namespace Negocio
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
                     if (!(datos.Lector["Marca"] is DBNull))
+                        aux.Marca.Id = (int)datos.Lector["IdMarca"];
                         aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
                     if (!(datos.Lector["Categoria"] is DBNull))
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                         aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     aux.Imagenes = new List<Imagen>();

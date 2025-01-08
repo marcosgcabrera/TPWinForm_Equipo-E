@@ -82,8 +82,8 @@ namespace WindowsFormsApp1
                 nombreTxt.Text = articulo.Nombre;
                 descripcionTxt.Text = articulo.Descripcion;
                 precioTxt.Text = articulo.Precio.ToString();
-                cboMarca.SelectedValue = articulo.Marca.Descripcion;
-                cboCategoria.SelectedValue = articulo.Categoria.Descripcion;
+                cboMarca.SelectedValue = articulo.Marca.Id;
+                cboCategoria.SelectedValue = articulo.Categoria.Id;
                 //imagentxt.Text = articulo.UrlImagen;
                 //cargarImagen(articulo.Nombre);
             }

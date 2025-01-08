@@ -85,11 +85,16 @@ namespace WindowsFormsApp1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
-            FormAgregar modificar = new FormAgregar(seleccionado);
-            modificar.ShowDialog();
-            cargar();
+            if (dataGridView1 != null)
+            {
+                Articulo seleccionado;
+                seleccionado = (Articulo)dataGridView1.CurrentRow.DataBoundItem;
+                FormAgregar modificar = new FormAgregar(seleccionado);
+                modificar.ShowDialog();
+                cargar();
+            }
+            
+     
         }
 
         private void btnFiltro_Click(object sender, EventArgs e)
