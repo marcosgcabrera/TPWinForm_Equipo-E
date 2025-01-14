@@ -68,9 +68,11 @@ namespace Negocio
             try
             {
 
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ", @idMarca, @idCategoria)");// sql "insert"
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) VALUES ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "'," + nuevo.Precio + ", @idMarca, @idCategoria,)");// sql "insert"
+                datos.setearConsulta("INSERT INTO IMAGENES ImagenUrl VALUES @imagen)");
                 datos.setearParametroDesp("@idMarca", nuevo.Marca.Id);
                 datos.setearParametroDesp("@idCategoria", nuevo.Categoria.Id);
+                datos.setearParametroDesp("@imagen", nuevo);
 
 
                 datos.ejecutarAccion();

@@ -38,6 +38,8 @@ namespace WindowsFormsApp1
                 articulo.Precio = decimal.Parse(precioTxt.Text);
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+                articulo.Imagenes[0].Url = urlImagenTxt.Text;
+                cargarImagen(urlImagenTxt.Text);
 
 
                 if (articulo.Id == 0)
@@ -84,8 +86,8 @@ namespace WindowsFormsApp1
                 precioTxt.Text = articulo.Precio.ToString();
                 cboMarca.SelectedValue = articulo.Marca.Id;
                 cboCategoria.SelectedValue = articulo.Categoria.Id;
-                //imagentxt.Text = articulo.UrlImagen;
-                //cargarImagen(articulo.Nombre);
+                urlImagenTxt.Text = articulo.Imagenes[0].Url;
+                cargarImagen(articulo.Nombre);
             }
 
 
